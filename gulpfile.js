@@ -42,7 +42,9 @@ function pipeJS() {
 	return src('src/**/*.js').pipe(dest('dist/')).pipe(bs.stream());
 }
 function pipeIMG() {
-	return src('src/img/**/*').pipe(dest('dist/img/')).pipe(bs.stream());
+	return src('src/img/**/*', { encoding: false })
+		.pipe(dest('dist/img/'))
+		.pipe(bs.stream());
 }
 function pipeFonts() {
 	return src('src/fonts/*').pipe(dest('dist/fonts/')).pipe(bs.stream());
